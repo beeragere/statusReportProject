@@ -1,21 +1,21 @@
 import LoginErrorMessage from "./LoginErrorMessage";
 import ServerErrorMessage from "./ServerErrorMessage";
-const LoginTemplate = (props) => {
+const LoginTemplate = ({userInput, formValidation, updateInputs, loginError, serverError}) => {
     return(
         <div className="loginHolder">
             <h2 className="name">
                 LogIn
             </h2>
-            <form action="#">
+            <form onSubmit={formValidation}>
                 <label htmlFor="userName">Username</label>
-                <input type="text" name="userName" defaultValue="" placeholder="name.ta"/>
+                <input type="text" name="username" value={userInput.username} onChange={updateInputs} placeholder="name.ta"/>
                 <label htmlFor="password">Password</label>
-                <input type="password" name="password" defaultValue="" placeholder="Password"/>
+                <input type="password" name="password" value={userInput.password} onChange={updateInputs} placeholder="Password"/>
                 <input className="button" type="submit" value="Log In"/>
             </form>
             <div className="messages">
-                <LoginErrorMessage/>
-                <ServerErrorMessage/>
+               {loginError && <LoginErrorMessage/>} 
+               {serverError && <ServerErrorMessage/>}
             </div>
         </div>
     )

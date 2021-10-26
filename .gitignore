@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /copyFolder
+/server
 /.pnp
 .pnp.js
 /src/App.scss
