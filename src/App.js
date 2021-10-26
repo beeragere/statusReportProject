@@ -1,6 +1,6 @@
 import CompanyName from "./loginPage/CompanyName";
 import LoginTemplate from "./loginPage/LoginTemplate";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './App.css'
 
 const App = () => {
@@ -10,17 +10,24 @@ const App = () => {
     let [blankError, setBlankError] = useState(false);
 
     ////for validating the form when use clicks on 'login'
-    const formValidation = (e) => {
+    function formValidation(e){
         if(userInput.username === "" || userInput.password === ""){
             setBlankError(true);
         }
         else{
             setBlankError(false);
         }
+
+        if(userInput.username !== "hello" && userInput.password !== "world" && blankError === false){
+            setLoginError(true);
+        }
+        else{
+            setLoginError(false);
+        }
        e.preventDefault();
     }
     ///for updating input fields in form
-    const updateInputs = (e) => {
+    function updateInputs(e){
         setUserInput({...userInput, [e.target.name]: e.target.value})
     }
     return (
