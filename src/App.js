@@ -10,23 +10,27 @@ const App = () => {
     ////for validating the form when user clicks on 'login'
     const formValidation = (e) => {
         if(userInput.username === "" || userInput.password === ""){
-            setError({...error, blankError: true});
+            // setError({...error, blankError: true});
+            setError(error => {
+                return {...error, blankError: true};
+            })
             console.log("here");
+        }
+        else{
+
+        }
+
+        if((userInput.username !== "name" || userInput.password !== "pass") && error.blankError === false){
+            setError(error => {
+                return {...error, loginError: true};
+            });
+            console.log("login error");
             console.log(error);
         }
         else{
-            setError({...error, blankError: false})
+            console.log("no login error");
+            setError({...error, loginError: false});
         }
-
-        // if((userInput.username !== "name" || userInput.password !== "pass") && error.blankError === false){
-        //     setError({...error, loginError: true});
-        //     console.log("login error");
-        //     console.log(error);
-        // }
-        // else{
-        //     console.log("no login error");
-        //     setError({...error, loginError: false});
-        // }
        e.preventDefault();
     }
     ///for updating input fields in form
@@ -34,8 +38,6 @@ const App = () => {
         setUserInput({...userInput, [e.target.name]: e.target.value})
     }
     ///useEffect to update synchronously...
-    useEffect(() => {
-    })
     return (
         <div className="app">
                 <CompanyName/>
