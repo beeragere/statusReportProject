@@ -7,12 +7,16 @@
 }
 
 :root {
-  font-size: 20px;
+  font-size: 18px;
   font-family: 'Raleway', sans-serif;
 }
 
 body {
   height: 100vh;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .app {
@@ -53,6 +57,9 @@ body {
 }
 
 .app .companyHolder .nameHolder {
+  margin-top: 25%;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -73,10 +80,13 @@ body {
 .app .companyHolder .nameHolder .logo {
   height: 5.2rem;
   width: 5.2rem;
-  background-image: url("loginPage/images/logo.jpg");
+  background-image: url("loginPage/images/logo.jpg"), -webkit-gradient(linear, left top, left bottom, from(rgba(24, 78, 119, 0.8)), to(rgba(82, 182, 154, 0.6)));
+  background-image: url("loginPage/images/logo.jpg"), linear-gradient(rgba(24, 78, 119, 0.8), rgba(82, 182, 154, 0.6));
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  -webkit-box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.3);
 }
 
 .app .companyHolder .nameHolder .name {
@@ -98,9 +108,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -110,6 +120,7 @@ body {
   color: #FFFBFB;
   font-size: 2rem;
   margin: 1rem;
+  margin-top: 18%;
   text-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
 }
 
@@ -127,6 +138,12 @@ body {
   row-gap: 4px;
   border: none;
   border-radius: 10px;
+  -webkit-box-shadow: 0px 5px 5px 1px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 5px 5px 1px rgba(0, 0, 0, 0.3);
+}
+
+.app .loginHolder form label {
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .app .loginHolder form input {
@@ -141,7 +158,9 @@ body {
 }
 
 .app .loginHolder form input:focus {
-  outline: none;
+  outline: 2px solid black;
+  -webkit-transition: 100ms all;
+  transition: 100ms all;
 }
 
 .app .loginHolder form .button {
@@ -151,5 +170,20 @@ body {
   width: 4rem;
   margin-left: auto;
   margin-right: auto;
+  -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.4);
+}
+
+.app .loginHolder form .button:focus {
+  outline: none;
+}
+
+.app .loginHolder form .button:active {
+  background-color: rgba(24, 78, 119, 0.8);
+}
+
+.app .loginHolder .messages {
+  margin-top: 2rem;
+  color: #be1c1c;
 }
 /*# sourceMappingURL=App.css.map */

@@ -1,12 +1,12 @@
-import ErrorMessage from "./ErrorMessage";
-import SuccessMessage from "./SuccessMessage";
+import LoginErrorMessage from "./LoginErrorMessage";
+import ServerErrorMessage from "./ServerErrorMessage";
 const LoginTemplate = (props) => {
     return(
         <div className="loginHolder">
             <h2 className="name">
                 LogIn
             </h2>
-            <form>
+            <form action="#">
                 <label htmlFor="userName">Username</label>
                 <input type="text" name="userName" defaultValue="" placeholder="name.ta"/>
                 <label htmlFor="password">Password</label>
@@ -14,8 +14,8 @@ const LoginTemplate = (props) => {
                 <input className="button" type="submit" value="Log In"/>
             </form>
             <div className="messages">
-                <ErrorMessage/>
-                <SuccessMessage/>
+                <LoginErrorMessage/>
+                <ServerErrorMessage/>
             </div>
         </div>
     )

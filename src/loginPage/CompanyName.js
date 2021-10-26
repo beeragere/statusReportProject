@@ -1,4 +1,5 @@
 const CompanyName = (props) => {
+    // document.querySelector("title").innerHTML = "Login Page";
     return(
         <div className="companyHolder">
             <div className="nameHolder">

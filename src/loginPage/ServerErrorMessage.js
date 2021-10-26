@@ -1,4 +1,4 @@
-const SuccessMessage = () => {
+const ServerErrorMessage = () => {
     return(
         <div className="errorMessage">
             Successful
@@ -6,4 +6,4 @@ const SuccessMessage = () => {
     )
 }
 
-export default SuccessMessage; 
+export default ServerErrorMessage; 

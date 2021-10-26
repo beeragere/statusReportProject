@@ -1,4 +1,4 @@
-const ErrorMessage = () => {
+const LoginErrorMessage = () => {
     return(
         <div className="errorMessage">
             Incorrect Password Or Username
@@ -6,4 +6,4 @@ const ErrorMessage = () => {
     )
 }
 
-export default ErrorMessage; 
+export default LoginErrorMessage; 
