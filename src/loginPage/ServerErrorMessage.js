@@ -1,7 +1,7 @@
 const ServerErrorMessage = () => {
     return(
         <div className="errorMessage">
-            Successful
+            Error: Couldn't connect to the Server
         </div>
     )
 }
