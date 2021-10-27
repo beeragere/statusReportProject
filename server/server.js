@@ -23,6 +23,6 @@ App.get('/', (req, res) => {
     }
 })
 
-App.listen(8000, () => {
+App.listen(port, () => {
     console.log(`listening on port ${port}`);
 })
