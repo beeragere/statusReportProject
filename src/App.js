@@ -7,20 +7,24 @@ const App = () => {
     let [userInput, setUserInput] = useState({username: "", password: ""});
     let [error, setError] = useState(null);
 
-    const fetchData = async () => {
-            await fetch("http://localhost:8000/?username=username&password=password")
-            .then(
-            res => {
-                  let data = res.json();
-                  return data;
-            } 
-            )
-            .then(
-                res => {
-                    console.log(res);
-                }
-            )
-    }
+
+    ////for fetching the data from the server
+     const fetchData = async (username, password) => {
+         try{
+            const data = await fetch(`http://localhost:8000/?username=${username}&password=${password}`)
+            if(!data.ok){
+                throw new Error("Couldn't Connect To The Serever");
+            }
+            const response = await data.json();
+            if(response.result === "reject"){
+                throw new Error("Invalid Username Or Password");
+            }
+         }
+         catch(error){
+             setError(error.message);
+         }
+     }
+
     ////for validating the form when user clicks on 'login'
     const formValidation = (e) => {
         e.preventDefault();
@@ -31,25 +35,18 @@ const App = () => {
             else{
                 setError(null);
             }
-
-            fetchData();
-
-            if(userInput.username !== "name" || userInput.password !== "pass"){
-                throw new Error("Username or Password Is Wrong");
-            }
-            else{
-                setError(null);
-            }
+            fetchData(userInput.username, userInput.password);
         }
         catch(error){
             setError(error.message);
         }
     }
+
     ///for updating input fields in form
     const updateInputs = (e) => {
         setUserInput({...userInput, [e.target.name]: e.target.value})
     }
-    ///useEffect to update synchronously...
+
     return (
         <div className="app">
                 <CompanyName/>
