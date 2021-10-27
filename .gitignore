@@ -3,6 +3,8 @@
 # dependencies
 /node_modules
 /copyFolder
+/src/loginPage/BlankErrorMessage.js
+/src/loginPage/ServerErrorMessage.js
 /.pnp
 .pnp.js
 /src/App.scss
