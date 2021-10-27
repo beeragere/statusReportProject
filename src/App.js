@@ -7,6 +7,20 @@ const App = () => {
     let [userInput, setUserInput] = useState({username: "", password: ""});
     let [error, setError] = useState(null);
 
+    const fetchData = async () => {
+            await fetch("http://localhost:8000/?username=username&password=password")
+            .then(
+            res => {
+                  let data = res.json();
+                  return data;
+            } 
+            )
+            .then(
+                res => {
+                    console.log(res);
+                }
+            )
+    }
     ////for validating the form when user clicks on 'login'
     const formValidation = (e) => {
         e.preventDefault();
@@ -18,10 +32,8 @@ const App = () => {
                 setError(null);
             }
 
-            fetch("google.com")
-            .then(
-                
-            )
+            fetchData();
+
             if(userInput.username !== "name" || userInput.password !== "pass"){
                 throw new Error("Username or Password Is Wrong");
             }
