@@ -1,37 +1,37 @@
 import CompanyName from "./loginPage/CompanyName";
 import LoginTemplate from "./loginPage/LoginTemplate";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import './App.css'
 
 const App = () => {
     let [userInput, setUserInput] = useState({username: "", password: ""});
-    let [error, setError] = useState({loginError: false, serverError: false, blankError: false});
+    let [error, setError] = useState(null);
 
     ////for validating the form when user clicks on 'login'
     const formValidation = (e) => {
-        if(userInput.username === "" || userInput.password === ""){
-            // setError({...error, blankError: true});
-            setError(error => {
-                return {...error, blankError: true};
-            })
-            console.log("here");
-        }
-        else{
+        e.preventDefault();
+        try{
+            if(userInput.username === "" || userInput.password === ""){
+                throw new Error("You Can't Leave The Inputs Blank");
+            }
+            else{
+                setError(null);
+            }
 
+            fetch("google.com")
+            .then(
+                
+            )
+            if(userInput.username !== "name" || userInput.password !== "pass"){
+                throw new Error("Username or Password Is Wrong");
+            }
+            else{
+                setError(null);
+            }
         }
-
-        if((userInput.username !== "name" || userInput.password !== "pass") && error.blankError === false){
-            setError(error => {
-                return {...error, loginError: true};
-            });
-            console.log("login error");
-            console.log(error);
+        catch(error){
+            setError(error.message);
         }
-        else{
-            console.log("no login error");
-            setError({...error, loginError: false});
-        }
-       e.preventDefault();
     }
     ///for updating input fields in form
     const updateInputs = (e) => {

@@ -1,6 +1,4 @@
-import LoginErrorMessage from "./LoginErrorMessage";
-import ServerErrorMessage from "./ServerErrorMessage";
-import BlankErrorMessage from "./BlankErrorMessage"
+import ErrorMessage from "./ErrorMessage";
 const LoginTemplate = ({userInput, formValidation, updateInputs, error}) => {
     document.querySelector("title").innerHTML = "Login Page";
     return(
@@ -16,9 +14,7 @@ const LoginTemplate = ({userInput, formValidation, updateInputs, error}) => {
                 <input className="button" type="submit" value="Log In"/>
             </form>
             <div className="messages">
-               {error.loginError && <LoginErrorMessage/>} 
-               {error.serverError && <ServerErrorMessage/>}
-               {error.blankError && <BlankErrorMessage/>}
+               {<ErrorMessage error = {error}/>} 
             </div>
         </div>
     )
