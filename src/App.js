@@ -1,11 +1,7 @@
 import CompanyName from "./loginPage/CompanyName";
 import LoginTemplate from "./loginPage/LoginTemplate";
-<<<<<<< HEAD
-import { useEffect, useState } from "react";
-=======
 import LoadingScreen from "./loginPage/LoadingScreen";
 import { useState } from "react";
->>>>>>> testBranch
 import './App.css'
 
 const App = () => {
@@ -63,5 +59,7 @@ const App = () => {
         </div> 
     )
 }
+}
 
 export default App;
+
