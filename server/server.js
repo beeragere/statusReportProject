@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 
 const App = express();
-let port = 8000;
+let port = 9000;
 
 let user = {
     username: "username",
@@ -12,8 +12,7 @@ let user = {
 App.use(cors());
 App.get('/', (req, res) => {
     let userData = req.query;
-// && query.password === toString(user.password)
-    if((userData.username === user.username) || (userData.password === user.password)){
+    if((userData.username === user.username) && (userData.password === user.password)){
         console.log("success");
         res.json({result: "success"});
     }
