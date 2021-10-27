@@ -44,6 +44,7 @@ const App = () => {
         }
         catch(error){
             setError(error.message);
+        }
     }
 
     ///for updating input fields in form
@@ -58,7 +59,6 @@ const App = () => {
                 {loader&&<LoadingScreen/>} 
         </div> 
     )
-}
 }
 
 export default App;
