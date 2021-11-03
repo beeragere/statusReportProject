@@ -9,7 +9,7 @@ const client = new Client({
     port: 5432
 })
 
-///////////////////////connect to the client///////////////////////////////
+///////////////////////Connect to the Client///////////////////////////////
 client
     .connect()
     .then(
@@ -21,7 +21,7 @@ client
         console.log(`error: ${err}`);
     });
 
-////////////////////querry data from userdata table/////////////////////////
+////////////////////query data from userdata table/////////////////////////
 client
     .query("SELECT * FROM  userdata")
     .then(
