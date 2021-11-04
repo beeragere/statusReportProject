@@ -8,5 +8,5 @@ let hash = bcrypt.hashSync("shubhanga", salt);
 
 //verify the password using the function compareSync();
 let check = bcrypt.compareSync("password", hash);
-console.log(check);
+console.log(check); //false
 
