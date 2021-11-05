@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
 
+
 //create random salt;
 let salt = bcrypt.genSaltSync(10);
 
